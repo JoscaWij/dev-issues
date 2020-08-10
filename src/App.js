@@ -10,7 +10,9 @@ function App() {
   });
   const searchBox = SearchBox({
     onChange: async (value) => {
-      const issues = await getIssues();
+      const issues = await getIssues({
+        searchInput: value,
+      });
       console.log(issues);
 
       const newResults = Results({
