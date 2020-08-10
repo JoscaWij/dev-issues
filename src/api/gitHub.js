@@ -1,9 +1,10 @@
-export async function getIssues(props) {
-  /*  console.log(props); */
+export async function getIssues(query) {
+  console.log(query);
   const response = await fetch(
-    "https://api.github.com/search/issues?q=test" + props.searchInput
+    "https://api.github.com/search/issues?q=test" + query.searchInput
+    /* alternativ: `link$query.searchInput` */
   );
   const result = await response.json();
-  console.log(result);
-  /*   return result; */
+  /*   console.log(result); */
+  return result.items;
 }

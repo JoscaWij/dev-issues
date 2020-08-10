@@ -16,7 +16,7 @@ function App() {
       console.log(issues);
 
       const newResults = Results({
-        values: ["123", "3245345"],
+        values: issues,
       });
 
       results.parentElement.replaceChild(newResults, results);
