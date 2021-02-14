@@ -10,11 +10,13 @@ function App() {
   });
   const searchBox = SearchBox({
     onChange: async (value) => {
-      const issues = await getIssues();
+      const issues = await getIssues({
+        searchInput: value,
+      });
       console.log(issues);
 
       const newResults = Results({
-        values: ["123", "3245345"],
+        values: issues,
       });
 
       results.parentElement.replaceChild(newResults, results);

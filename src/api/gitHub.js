@@ -1,5 +1,10 @@
-export async function getIssues() {
-  const response = await fetch("https://api.github.com/search/issues?q=test");
+export async function getIssues(query) {
+  console.log(query);
+  const response = await fetch(
+    "https://api.github.com/search/issues?q=test" + query.searchInput
+    /* alternativ: `link$query.searchInput` */
+  );
   const result = await response.json();
-  return result;
+  /*   console.log(result); */
+  return result.items;
 }
